@@ -1,7 +1,7 @@
 ---@diagnostic disable: param-type-mismatch
-require 'test.setup'
-
+local Trans = require 'Trans'
 local util = Trans.util
+local i = util.node.item
 
 describe('util.display_height', function()
     it('can calculate the height of lines when window with wrap option', function()

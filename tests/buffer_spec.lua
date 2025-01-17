@@ -1,4 +1,17 @@
-require 'test.setup'
+---@module "luassert"
+local Trans = require "Trans"
+
+local i = Trans.util.node.item
+
+---@param func fun(buffer: TransBuffer)
+---@return fun()
+local function with_buffer(func)
+    return function()
+        local buffer = Trans.buffer.new()
+        func(buffer)
+        buffer:destroy()
+    end
+end
 
 describe('buffer:setline()', function()
     it('can accept one index linenr as second arg', with_buffer(function(buffer)

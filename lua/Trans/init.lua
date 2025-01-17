@@ -18,7 +18,7 @@ end
 ---@field width function @Get string display width
 ---@field play function @Use tts to play string
 
-local uname = vim.loop.os_uname().sysname
+local uname = (vim.uv or vim.loop).os_uname().sysname
 local system =
     uname == 'Darwin' and 'mac' or
     uname == 'Windows_NT' and 'win' or

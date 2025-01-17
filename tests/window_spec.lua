@@ -1,4 +1,15 @@
-require 'test.setup'
+---@module "luassert"
+local Trans = require("Trans")
+
+---@param func fun(buffer: TransBuffer)
+---@return fun()
+local function with_buffer(func)
+    return function()
+        local buffer = Trans.buffer.new()
+        func(buffer)
+        buffer:destroy()
+    end
+end
 
 
 describe('window', with_buffer(function(buffer)

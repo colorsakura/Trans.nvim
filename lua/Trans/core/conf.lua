@@ -3,6 +3,11 @@
 
 
 ---@class TransConf
+---@field dir string
+---@field debug boolean
+---@field theme 'default' | 'dracula' | 'tokyonight'
+---@field strategy { frontend:string, backend:string | string[] }
+---@field frontend TransFrontendOpts
 return {
     ---@type string the directory for database file and password file
     dir      = require 'Trans'.plugin_dir,
